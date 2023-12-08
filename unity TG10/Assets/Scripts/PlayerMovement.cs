@@ -55,9 +55,9 @@ public class PlayerMovement : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-        Vector3 localScale = transform.localScale;
+        /*Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
-        transform.localScale = localScale;
+        transform.localScale = localScale;*/
 
     }
 }
