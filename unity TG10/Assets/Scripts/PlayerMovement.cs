@@ -17,9 +17,19 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        flip();
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if(Input.GetButtonDown("Jump") && isGrounded())
+        if (mousePos.x > transform.position.x && !isFacingRight)
+        {
+            flip();
+        }
+        else if (mousePos.x < transform.position.x && isFacingRight)
+        {
+            flip();
+        }
+
+
+        if (Input.GetButtonDown("Jump") && isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
@@ -27,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+
+
     }
 
     private void FixedUpdate()
@@ -41,12 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void flip()
     {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0f, 180f, 0f);
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
+
     }
 }
