@@ -8,7 +8,7 @@ public class bullet : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
-    [SerializeField] private float lifeTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +27,13 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+
+    private void OnCollisionEnter2D(Collision2D trigger)
+    {
+        Destroy(gameObject);
+        /*Debug.Log("PILIPPPPPPPPPPPPPPPPPPP");*/
+    }
+
 }
