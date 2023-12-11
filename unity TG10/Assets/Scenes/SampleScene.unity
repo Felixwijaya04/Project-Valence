@@ -588,7 +588,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4528302, g: 0.035884622, b: 0.035884622, a: 1}
   m_FlipX: 0
@@ -609,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 113911642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.412, y: -21.422, z: 0}
+  m_LocalPosition: {x: -52.412, y: -22.62, z: 0}
   m_LocalScale: {x: 5.1318817, y: 5.1318817, z: 5.1318817}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4563,7 +4563,7 @@ CompositeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.32}
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
@@ -4590,12 +4590,12 @@ CompositeCollider2D:
         Y: -400000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 39.999973, y: -56}
-      - {x: 39.999973, y: -24}
-      - {x: 8, y: -23.999971}
-      - {x: 7.9999704, y: -23.983795}
-      - {x: -152, y: -23.983824}
-      - {x: -151.99997, y: -56}
+    - - {x: 39.999973, y: -57.32}
+      - {x: 39.999973, y: -25.32}
+      - {x: 8, y: -25.319971}
+      - {x: 7.9999704, y: -25.303795}
+      - {x: -152, y: -25.303823}
+      - {x: -151.99997, y: -57.32}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -4783,7 +4783,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -5111,7 +5111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
