@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,11 +11,22 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
+    private bool canDash = true;
+    private bool isDashing;
+    public float DashingPower = 16f;
+    private float DashingTime = 0.2f;
+    private float DashingCD = 1f;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
 
@@ -39,18 +51,20 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-
+        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-        if (Input.GetButtonDown("KeyCode.LeftShift"))
-        {
-            rb.velocity = rb.velocity * 2;
+        if(isDashing) 
+        { 
+            return;
         }
-        
+
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
     private bool isGrounded()
@@ -62,9 +76,23 @@ public class PlayerMovement : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-        /*Vector3 localScale = transform.localScale;
+       /* Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;*/
 
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * DashingPower, 0f);
+        yield return new WaitForSeconds(DashingTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(DashingCD);
+        canDash = true;
     }
 }
