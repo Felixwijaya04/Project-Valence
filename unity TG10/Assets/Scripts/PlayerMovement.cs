@@ -11,21 +11,21 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
-    private bool canDash = true;
+ /*   private bool canDash = true;
     private bool isDashing;
     public float DashingPower = 16f;
     private float DashingTime = 0.2f;
-    private float DashingCD = 1f;
+    private float DashingCD = 1f;*/
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     void Update()
     {
-        if (isDashing)
+       /* if (isDashing)
         {
             return;
-        }
+        }*/
 
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private IEnumerator Dash()
+    /*private IEnumerator Dash()
     {
         canDash = false;
         isDashing = true;
@@ -94,5 +94,5 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(DashingCD);
         canDash = true;
-    }
+    }*/
 }
