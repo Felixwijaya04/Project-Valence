@@ -7,25 +7,18 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private float horizontal;
-    public float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
-
-    private bool canDash = true;
-    private bool isDashing;
-    public float DashingPower = 16f;
-    private float DashingTime = 0.2f;
-    private float DashingCD = 1f;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] float Walkspeed = 20f;
+    [SerializeField] float runningSpeed = 30f;
+
+    float currentSpeed;
     void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
 
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -37,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             flip();
         }
         else if (mousePos.x < transform.position.x && isFacingRight)
-        {
+        { 
             flip();
         }
 
@@ -51,20 +44,24 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
+        
     }
 
     private void FixedUpdate()
     {
-        if(isDashing) 
-        { 
-            return;
+        Walk();
+    }
+    void Walk()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            currentSpeed = runningSpeed;
         }
-
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        else
+        {
+            currentSpeed = Walkspeed;
+        }
+        rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);
     }
 
     private bool isGrounded()
@@ -80,19 +77,5 @@ public class PlayerMovement : MonoBehaviour
         localScale.x *= -1f;
         transform.localScale = localScale;*/
 
-    }
-
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * DashingPower, 0f);
-        yield return new WaitForSeconds(DashingTime);
-        rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(DashingCD);
-        canDash = true;
     }
 }
