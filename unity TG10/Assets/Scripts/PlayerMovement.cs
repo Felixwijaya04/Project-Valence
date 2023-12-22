@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] float Walkspeed = 20f;
     [SerializeField] float runningSpeed = 30f;
+    [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
     void Update()
@@ -54,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
         {
             currentSpeed = runningSpeed;
             Debug.Log("running");
+        } else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            currentSpeed = silentWalkSpeed;
+            Debug.Log("silent");
         }
         Walk(currentSpeed);
     }
