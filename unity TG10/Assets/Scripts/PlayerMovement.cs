@@ -49,19 +49,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Walk();
-    }
-    void Walk()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        currentSpeed = Walkspeed;
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = runningSpeed;
+            Debug.Log("running");
         }
-        else
-        {
-            currentSpeed = Walkspeed;
-        }
+        Walk(currentSpeed);
+    }
+    void Walk(float currentspeed)
+    {
+        
         rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);
+        
     }
 
     private bool isGrounded()
