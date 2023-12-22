@@ -51,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         currentSpeed = Walkspeed;
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded())
         {
             currentSpeed = runningSpeed;
             Debug.Log("running");
-        } else if (Input.GetKey(KeyCode.LeftControl))
+        } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded())
         {
             currentSpeed = silentWalkSpeed;
             Debug.Log("silent");

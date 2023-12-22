@@ -21,6 +21,11 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shooting();
+    }
+
+    void shooting()
+    {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -36,10 +41,19 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButton(0) && isFire)
+        if (Input.GetMouseButton(0) && isFire)
         {
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Pressing();
         }
+    }
+    public bool Pressing()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            return true;
+        }
+        return false;
     }
 }
