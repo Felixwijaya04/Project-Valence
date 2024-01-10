@@ -11,10 +11,15 @@ public class Shooting : MonoBehaviour
     public bool isFire;
     private float timer;
     public float intervalFiring;
+    public GameObject Flash;
+    [Range(0,5)]
+    public int FramesToFlash = 1;
+    bool isflashing = false;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Flash.SetActive(false);
         
     }
 
@@ -45,6 +50,12 @@ public class Shooting : MonoBehaviour
         {
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            if (!isflashing)
+            {
+                StartCoroutine(DoFlash());
+            }
+
+            /*Instantiate(Flash, bulletTransform.position, Quaternion.identity);*/
             Pressing();
         }
     }
@@ -55,5 +66,20 @@ public class Shooting : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    IEnumerator DoFlash()
+    {
+        Flash.SetActive(true);
+        var framesFlashed = 0;
+        isflashing = true;
+
+        while (framesFlashed <= FramesToFlash)
+        {
+            framesFlashed++;
+            yield return null;
+        }
+        Flash.SetActive(false);
+        isflashing = false;
     }
 }

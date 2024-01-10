@@ -8,13 +8,13 @@ public class bullet : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
-    public Sprite FlashSprite;
-    public int FramesToFlash = 1;
+    /*public Sprite FlashSprite;
+    public int FramesToFlash = 1;*/
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DoFlash());
+        
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -24,13 +24,13 @@ public class bullet : MonoBehaviour
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
         Destroy(gameObject, 1);
-    }   
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     private void OnCollisionEnter2D(Collision2D trigger)
@@ -39,7 +39,7 @@ public class bullet : MonoBehaviour
         /*Debug.Log("PILIPPPPPPPPPPPPPPPPPPP");*/
     }
 
-    IEnumerator DoFlash()
+    /*IEnumerator DoFlash()
     {
         var renderer = GetComponent<SpriteRenderer>();
         var originalSprite = renderer.sprite;
@@ -51,6 +51,6 @@ public class bullet : MonoBehaviour
             framesFlashed++;
             yield return null;
         }
-    }
+    }*/
 
-}
+ }
