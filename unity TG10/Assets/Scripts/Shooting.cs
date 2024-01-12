@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Shooting : MonoBehaviour
 {
@@ -15,11 +16,13 @@ public class Shooting : MonoBehaviour
     [Range(0,5)]
     public int FramesToFlash = 1;
     bool isflashing = false;
+    private CinemachineImpulseSource impulseSource;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         Flash.SetActive(false);
+        impulseSource = GetComponent<CinemachineImpulseSource>();
         
     }
 
@@ -50,6 +53,8 @@ public class Shooting : MonoBehaviour
         {
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            CameraShakeManager.instance.CameraShake(impulseSource);
+            
             if (!isflashing)
             {
                 StartCoroutine(DoFlash());
