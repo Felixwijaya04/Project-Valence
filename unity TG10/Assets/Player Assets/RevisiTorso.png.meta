@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d7fea52489670040bc612ab659fd1cc
+guid: e41fcc866c51e4b43a1f67356d03b450
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torso_0
+      name: RevisiTorso_0
       rect:
         serializedVersion: 2
         x: 395
@@ -131,14 +131,14 @@ TextureImporter:
         width: 467
         height: 802
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7fc9432e94a3be4bb6835c972c26d4d
-      internalID: -882233760
+      spriteID: 3505ee3e1ac3a3741850ed28c0451d49
+      internalID: -35536481
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Torso_0: -882233760
+      RevisiTorso_0: -35536481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
