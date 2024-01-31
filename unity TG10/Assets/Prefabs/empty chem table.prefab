@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3500897677833380608}
   - component: {fileID: 5410199469751718188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: empty chem table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
