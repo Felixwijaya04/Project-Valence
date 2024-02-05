@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         // memanggil return value dari script shooting
         if (Shooting.Pressing() == true)
         {
-            currentSpeed = 0;
+            currentSpeed = Walkspeed;
             Debug.Log("stop moving");
         }
         Walk(currentSpeed);
