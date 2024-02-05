@@ -60,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = silentWalkSpeed;
             Debug.Log("silent");
         }
+        // memanggil return value dari script shooting
+        if (Shooting.Pressing() == true)
+        {
+            currentSpeed = 0;
+            Debug.Log("stop moving");
+        }
         Walk(currentSpeed);
     }
     void Walk(float currentspeed)
