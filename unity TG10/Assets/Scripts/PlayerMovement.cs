@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     public float jumpingPower = 16f;
     private bool isFacingRight = true;
+    public Animator animator;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
-
+        animator.SetFloat("Walk", Mathf.Abs(rb.velocity.x));
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

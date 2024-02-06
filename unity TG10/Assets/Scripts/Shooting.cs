@@ -17,6 +17,7 @@ public class Shooting : MonoBehaviour
     public int FramesToFlash = 1;
     bool isflashing = false;
     private CinemachineImpulseSource impulseSource;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,7 @@ public class Shooting : MonoBehaviour
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             CameraShakeManager.instance.CameraShake(impulseSource);
-            
+            animator.SetTrigger("Shooting");
             if (!isflashing)
             {
                 StartCoroutine(DoFlash());
