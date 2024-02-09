@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpingPower = 16f;
     private bool isFacingRight = true;
     public Animator animator;
+    /*private int FacingSign = 0;*/
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -19,11 +21,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
+
+
+    
+
     void Update()
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("Walk", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("Speed", (isFacingRight ? 1 : -1 ) * rb.velocity.x);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -88,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
        /* Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;*/
-
+        
     }
+
+    
 }
