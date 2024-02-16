@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpingPower = 16f;
     private bool isFacingRight = true;
     public Animator animator;
+    private GameObject currentTeleporter;
     /*private int FacingSign = 0;*/
 
 
@@ -21,9 +22,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
-
-
-    
 
     void Update()
     {
@@ -51,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+
 
         
     }
