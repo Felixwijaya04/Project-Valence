@@ -34,7 +34,7 @@ public class EnemyScript : MonoBehaviour
 
     void StopChasing()
     {
-        rb2d.velocity = new Vector2 (0, 0);
+        rb2d.velocity = new Vector2 (0 , -moveSpeed);
     }
 
     void Chase()
