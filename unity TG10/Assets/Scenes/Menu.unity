@@ -799,6 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522331351}
+  - component: {fileID: 522331352}
   m_Layer: 5
   m_Name: Options Menu
   m_TagString: Untagged
@@ -829,6 +830,19 @@ RectTransform:
   m_AnchoredPosition: {x: 23, y: -4}
   m_SizeDelta: {x: 437.0657, y: 437.0657}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &522331352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522331350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f016f2dbdc4ea00478defd64296853ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audiomixer: {fileID: 24100000, guid: 203ce13a5e4e2414fb4b562b8af4f20a, type: 2}
 --- !u!1 &579550550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1227,7 @@ AudioSource:
   m_GameObject: {fileID: 1001351573}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 203ce13a5e4e2414fb4b562b8af4f20a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3ca2da28e4b5ed344a4ca240e0c3fa2d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1738,13 +1752,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1267329664}
   m_HandleRect: {fileID: 1587804730}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MinValue: -80
+  m_MaxValue: 80
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 522331352}
+        m_TargetAssemblyTypeName: SettingScript, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1267329663
 GameObject:
   m_ObjectHideFlags: 0
