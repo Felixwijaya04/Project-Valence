@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     public Animator animator;
     private GameObject currentTeleporter;
+    private bool isGrounded;
     /*private int FacingSign = 0;*/
 
 
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         {
             currentSpeed = runningSpeed;
             Debug.Log("running");
-        } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded())
+        } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded)
         {
             currentSpeed = silentWalkSpeed;
             Debug.Log("silent");
@@ -73,7 +74,36 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("stop moving");
         }
         Walk(currentSpeed);
+
+        //isGrounded
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        animator.SetBool("isGround", isGrounded);
     }
+
+    // private void FixedUpdate()
+    // {
+    //     currentSpeed = Walkspeed;
+    //     if (Input.GetKey(KeyCode.LeftShift))
+    //     {
+    //         currentSpeed = runningSpeed;
+    //         Debug.Log("running");
+    //     } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded())
+    //     {
+    //         currentSpeed = silentWalkSpeed;
+    //         Debug.Log("silent");
+    //     }
+    //     // memanggil return value dari script shooting
+    //     if (Shooting.Pressing() == true)
+    //     {
+    //         currentSpeed = Walkspeed;
+    //         Debug.Log("stop moving");
+    //     }
+    //     Walk(currentSpeed);
+
+    //     //isGrounded
+    //     isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    //     animator.SetBool("isGround", isGrounded);
+    // }
     void Walk(float currentspeed)
     {
         
@@ -81,10 +111,10 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
+    // private bool isGrounded()
+    // {
+    //     return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    // }
 
     private void flip()
     {
