@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     public Animator animator;
     private GameObject currentTeleporter;
+    public int maxHealth = 20;
+    public int currentHealth;
+    public HealthBar healthBar;
     /*private int FacingSign = 0;*/
 
 
@@ -22,6 +26,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.setMaxhealth(maxHealth);
+    }
 
     void Update()
     {
@@ -50,8 +60,17 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-
+        if(Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            TakeDamage(5);
+        }
         
+    }
+
+    private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.setHealth(currentHealth);
     }
 
     private void FixedUpdate()
