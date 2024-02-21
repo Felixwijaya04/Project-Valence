@@ -67,6 +67,17 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+
+
+
+
+
+
+
+
+
+
+
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
