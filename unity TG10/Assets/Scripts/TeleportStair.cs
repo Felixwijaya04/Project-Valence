@@ -4,10 +4,38 @@ using UnityEngine;
 
 public class TeleportStair : MonoBehaviour
 {
-    [SerializeField] private Transform destination;
+    // Coding pilip (katnaya pake gameevent)
+    // public Transform Destination2;
+    // public Transform Destination;
+    // private Transform destination{
+    //     public get{
+    //         return destination;
+    //     }
+    //     set{
+    //         destination = Destination;
+    //     }
+    // }
+    // public KeyCode key;
+    // private Transform destination2{
+    //     public get{
+    //         return destination;
+    //     }
+    //     set{
+    //         return Destination2;
+    //     }
+    // }
+    // public KeyCode key2;
 
-    public Transform GetDestination()
+    [SerializeField] private Transform destinationup;
+    [SerializeField] private Transform destinationdown;
+
+    public Transform GetDestinationUp()
     {
-        return destination;
+        return destinationup;
+    }
+
+    public Transform GetDestinationDown()
+    {
+        return destinationdown;
     }
 }

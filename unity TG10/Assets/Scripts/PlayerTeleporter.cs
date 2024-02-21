@@ -5,16 +5,32 @@ using UnityEngine;
 public class PlayerTeleporter : MonoBehaviour
 {
     private GameObject currentTeleporter;
-    
+    private TeleportStair tStair;
+    // void Awake(){
+    //     tStair = currentTeleporter.GetComponent<tStair>();
+    // }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        // if(Input.GetKeyDown(tStair.key)){
+        //     transform.position = tStair.destination.position;
+        // }
+        // if(Input.GetKeyDown(tStair.key2)){
+        //     transform.position = tStair.destination2.position;
+        // }
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (currentTeleporter != null)
             {
-                transform.position = currentTeleporter.GetComponent<TeleportStair>().GetDestination().position;
+                transform.position = currentTeleporter.GetComponent<TeleportStair>().GetDestinationUp().position;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (currentTeleporter != null)
+            {
+                transform.position = currentTeleporter.GetComponent<TeleportStair>().GetDestinationDown().position;
             }
         }
     }
