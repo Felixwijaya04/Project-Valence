@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class VendingManager : MonoBehaviour
 {
     public GameObject VendingUI;
+    public Behaviour playerscript;
     private bool _isplayer = false;
     // Start is called before the first frame update
     void Start()
     {
-        VendingUI.gameObject.SetActive(false);
+        /*VendingUI.gameObject.SetActive(false);*/
     }
 
     // Update is called once per frame
@@ -19,11 +20,14 @@ public class VendingManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && _isplayer == true)
         {
             VendingUI.gameObject.SetActive(true);
+            //disabled player movement when shop ui is open
+            playerscript.enabled = false;
+            
         }
-        if(_isplayer == false)
+        /*if(_isplayer == false)
         {
             VendingUI.gameObject.SetActive(false) ;
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
