@@ -10,6 +10,15 @@ public class ShootingNigger : MonoBehaviour
     public bool isFire;
     private float timer;
     public float intervalFiring;
+    public GameObject Flash;
+    [Range(0, 5)]
+    public int FramesToFlash = 1;
+    bool isflashing = false;
+
+    private void Start()
+    {
+        Flash.SetActive(false);
+    }
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -33,6 +42,10 @@ public class ShootingNigger : MonoBehaviour
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             Pressing();
+            if (!isflashing)
+            {
+                StartCoroutine(DoFlash());
+            }
         }
     }
     public static bool Pressing()
@@ -42,6 +55,20 @@ public class ShootingNigger : MonoBehaviour
             return true;
         }
         return false;
+    }
+    IEnumerator DoFlash()
+    {
+        Flash.SetActive(true);
+        var framesFlashed = 0;
+        isflashing = true;
+
+        while (framesFlashed <= FramesToFlash)
+        {
+            framesFlashed++;
+            yield return null;
+        }
+        Flash.SetActive(false);
+        isflashing = false;
     }
 
 
