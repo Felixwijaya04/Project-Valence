@@ -50,13 +50,15 @@ public class EnemyScript : MonoBehaviour
         {
             //move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
-            transform.Rotate(0f, 180f, 0f);
+            /*transform.Rotate(0f, 180f, 0f);*/
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if(transform.position.x > player.position.x) 
         {
             //move left
             rb2d.velocity = new Vector2 (-moveSpeed, 0);
-            transform.Rotate(0f, 180f, 0f);
+            /*transform.Rotate(0f, -180f, 0f);*/
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
     private void flip()
