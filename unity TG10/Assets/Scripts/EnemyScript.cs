@@ -8,6 +8,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float agroRange;
     [SerializeField] float moveSpeed;
+    [SerializeField] float attackDist;
+    [SerializeField] float maxHealth;
 
     Rigidbody2D rb2d;
     void Start()
@@ -30,6 +32,11 @@ public class EnemyScript : MonoBehaviour
             //stop
             StopChasing();
         }
+        if(distance < attackDist)
+        {
+            // play atk animation
+            
+        }
     }
 
     void StopChasing()
@@ -43,10 +50,17 @@ public class EnemyScript : MonoBehaviour
         {
             //move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
-        }else if(transform.position.x > player.position.x) 
+            transform.Rotate(0f, 180f, 0f);
+        }
+        else if(transform.position.x > player.position.x) 
         {
             //move left
             rb2d.velocity = new Vector2 (-moveSpeed, 0);
+            transform.Rotate(0f, 180f, 0f);
         }
+    }
+    private void flip()
+    {
+        // gtw cara flip ny
     }
 }
