@@ -21,13 +21,13 @@ public class VendingManager : MonoBehaviour
         {
             VendingUI.gameObject.SetActive(true);
             //disabled player movement when shop ui is open
-            playerscript.enabled = false;
+            /*playerscript.enabled = false;*/
             
         }
-        /*if(_isplayer == false)
-        {
-            VendingUI.gameObject.SetActive(false) ;
-        }*/
+        if (PlayerMovement.isMoving == true)
+            {
+                VendingUI.gameObject.SetActive(false);
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

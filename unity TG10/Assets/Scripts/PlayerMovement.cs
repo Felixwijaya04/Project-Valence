@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int maxHealth = 20;
     public int currentHealth;
     public HealthBar healthBar;
+    public static bool isMoving = false;
     /*private int FacingSign = 0;*/
 
 
@@ -37,6 +38,13 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        if (horizontal == 0)
+        {
+            isMoving = false;
+        } else if(horizontal !=0)
+        {
+            isMoving = true;
+        }
         animator.SetFloat("Speed", (isFacingRight ? 1 : -1 ) * rb.velocity.x);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -75,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         currentSpeed = Walkspeed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -96,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         //isGrounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         animator.SetBool("isGround", isGrounded);
+        
     }
 
     // private void FixedUpdate()
@@ -124,9 +134,7 @@ public class PlayerMovement : MonoBehaviour
     // }
     void Walk(float currentspeed)
     {
-        
         rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);
-        
     }
 
     // private bool isGrounded()
