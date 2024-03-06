@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float attackDist;
     [SerializeField] float maxHealth;
 
+    public Animator animator;
+
     Rigidbody2D rb2d;
     void Start()
     {
@@ -37,6 +39,7 @@ public class EnemyScript : MonoBehaviour
             // play atk animation
             
         }
+        animator.SetFloat("Speed", rb2d.velocity.x);
     }
 
     void StopChasing()
@@ -60,6 +63,7 @@ public class EnemyScript : MonoBehaviour
             /*transform.Rotate(0f, -180f, 0f);*/
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+        
     }
     private void flip()
     {
