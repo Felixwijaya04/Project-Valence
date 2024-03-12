@@ -23,7 +23,6 @@ public class bullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
-        Destroy(gameObject, 1);
     }
 
 
@@ -33,11 +32,11 @@ public class bullet : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D trigger)
+    /*private void OnCollisionEnter2D(Collision2D trigger)
     {
         Destroy(gameObject);
-        /*Debug.Log("PILIPPPPPPPPPPPPPPPPPPP");*/
-    }
+        *//*Debug.Log("PILIPPPPPPPPPPPPPPPPPPP");*//*
+    }*/
 
     /*IEnumerator DoFlash()
     {

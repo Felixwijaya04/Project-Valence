@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float maxHealth;
 
     public Animator animator;
+    public int health = 100;
 
     Rigidbody2D rb2d;
     void Start()
@@ -68,5 +69,19 @@ public class EnemyScript : MonoBehaviour
     private void flip()
     {
         // gtw cara flip ny
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
