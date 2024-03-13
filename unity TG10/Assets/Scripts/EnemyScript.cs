@@ -9,7 +9,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float agroRange;
     [SerializeField] float moveSpeed;
     [SerializeField] float attackDist;
-    [SerializeField] float maxHealth;
+    [SerializeField] Transform PatrolPoint;
+    [SerializeField] float patrolRange;
+
 
     public Animator animator;
     public int health = 100;
@@ -18,17 +20,21 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        GetComponent<EnemyPatrol>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.position);
+        float patrol = Vector2.Distance(transform.position, PatrolPoint.position);
+
         print("dist: " + distance);
         if(distance < agroRange)
         {
             //chase
             Chase();
+            
         }
         else
         {
@@ -37,10 +43,17 @@ public class EnemyScript : MonoBehaviour
         }
         if(distance < attackDist)
         {
-            // play atk animation
+            animator.SetTrigger("Attack");
             
         }
-        animator.SetFloat("Speed", rb2d.velocity.x);
+        animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+
+        if (patrol > patrolRange)
+        {
+            GetComponent<EnemyPatrol>().enabled = true;
+            GetComponent<EnemyScript>().enabled = false;
+        }
+
     }
 
     void StopChasing()
@@ -66,10 +79,7 @@ public class EnemyScript : MonoBehaviour
         }
         
     }
-    private void flip()
-    {
-        // gtw cara flip ny
-    }
+  
 
     public void TakeDamage(int damage)
     {
@@ -84,4 +94,5 @@ public class EnemyScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
