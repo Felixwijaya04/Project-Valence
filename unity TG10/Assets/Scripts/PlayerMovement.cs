@@ -27,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
+    AudioSource audioSource;
 
     private void Start()
     {
         currentHealth = maxHealth;
         healthBar.setMaxhealth(maxHealth);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -41,9 +43,15 @@ public class PlayerMovement : MonoBehaviour
         if (horizontal == 0)
         {
             isMoving = false;
+            audioSource.Stop();
         } else if(horizontal !=0)
         {
             isMoving = true;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            
         }
         animator.SetFloat("Speed", (isFacingRight ? 1 : -1 ) * rb.velocity.x);
 
@@ -75,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.setHealth(currentHealth);

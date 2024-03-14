@@ -11,10 +11,11 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float attackDist;
     [SerializeField] Transform PatrolPoint;
     [SerializeField] float patrolRange;
-
+    [SerializeField] float damage;
+    [SerializeField] float health;
 
     public Animator animator;
-    public int health = 100;
+    public PlayerMovement PM;
 
     Rigidbody2D rb2d;
     void Start()
@@ -95,4 +96,13 @@ public class EnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Hit a player");
+            PM.TakeDamage(3);
+        }
+
+    }
 }
