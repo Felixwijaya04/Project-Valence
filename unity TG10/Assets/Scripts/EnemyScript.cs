@@ -12,14 +12,19 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] Transform PatrolPoint;
     [SerializeField] float patrolRange;
     [SerializeField] float damage;
-    [SerializeField] float health;
+    [SerializeField] int health;
 
+    public int currentHealth;
     public Animator animator;
     public PlayerMovement PM;
+    public EnemyBarValue healthBar;
+    public EnemyHealtBar barBehaviour;
 
     Rigidbody2D rb2d;
     void Start()
     {
+        currentHealth = health;
+        healthBar.SetMaxHealth(health);
         rb2d = GetComponent<Rigidbody2D>();
         GetComponent<EnemyPatrol>().enabled = false;
     }
@@ -84,8 +89,9 @@ public class EnemyScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
         {
             Die();
         }
