@@ -18,7 +18,6 @@ public class EnemyScript : MonoBehaviour
     public Animator animator;
     public PlayerMovement PM;
     public EnemyBarValue healthBar;
-    public EnemyHealtBar barBehaviour;
 
     Rigidbody2D rb2d;
     void Start()
