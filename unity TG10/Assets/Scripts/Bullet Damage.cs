@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletDamage : MonoBehaviour
 {
     public int damage = 40;
+    public GameObject HitImpact;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +33,10 @@ public class BulletDamage : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        /*if (collision.gameObject.tag == "Enemy")
-        {
-            EnemyScript Enemy = GetComponent<EnemyScript>();
-            Enemy.TakeDamage(damage);
-            Debug.Log("HITTTTTTTTTTTTTT");
-        }*/
+        Instantiate(HitImpact,transform.position, Quaternion.identity);
+
+
+
         Destroy(gameObject);
     }
 

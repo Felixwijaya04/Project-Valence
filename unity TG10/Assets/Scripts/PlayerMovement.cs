@@ -22,11 +22,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] float Walkspeed = 20f;
-    [SerializeField] float runningSpeed = 30f;
+    [SerializeField] float Walkspeed ;
+    [SerializeField] float runningSpeed ;
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
+    public AudioClip walk, run;
     AudioSource audioSource;
 
     private void Start()
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal == 0)
         {
+            Debug.Log(horizontal);
             isMoving = false;
             audioSource.Stop();
         } else if(horizontal !=0)
@@ -53,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+
         animator.SetFloat("Speed", (isFacingRight ? 1 : -1 ) * rb.velocity.x);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -81,6 +84,8 @@ public class PlayerMovement : MonoBehaviour
             TakeDamage(5);
         }
 
+
+        
     }
 
     public void TakeDamage(int damage)
@@ -109,6 +114,25 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("stop moving");
         }
         Walk(currentSpeed);
+
+        if (currentSpeed == Walkspeed)
+        {
+            audioSource.clip = walk;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+        }
+        else if (currentSpeed == runningSpeed)
+        {
+            audioSource.clip = run;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+
+        }
 
         //isGrounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);

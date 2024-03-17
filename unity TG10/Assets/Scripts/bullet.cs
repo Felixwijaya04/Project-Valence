@@ -32,24 +32,6 @@ public class bullet : MonoBehaviour
 
     }
 
-    /*private void OnCollisionEnter2D(Collision2D trigger)
-    {
-        Destroy(gameObject);
-        *//*Debug.Log("PILIPPPPPPPPPPPPPPPPPPP");*//*
-    }*/
-
-    /*IEnumerator DoFlash()
-    {
-        var renderer = GetComponent<SpriteRenderer>();
-        var originalSprite = renderer.sprite;
-        renderer.sprite = FlashSprite;
-
-        var framesFlashed = 0;
-        while (framesFlashed < FramesToFlash)
-        {
-            framesFlashed++;
-            yield return null;
-        }
-    }*/
+    
 
  }

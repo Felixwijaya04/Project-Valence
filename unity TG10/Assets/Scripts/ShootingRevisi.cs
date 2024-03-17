@@ -14,9 +14,11 @@ public class ShootingNigger : MonoBehaviour
     [Range(0, 5)]
     public int FramesToFlash = 1;
     bool isflashing = false;
+    AudioSource suara; 
 
     private void Start()
     {
+        suara = GetComponent<AudioSource>();
         Flash.SetActive(false);
     }
 
@@ -41,6 +43,7 @@ public class ShootingNigger : MonoBehaviour
         {
             isFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            suara.Play();
             Pressing();
             if (!isflashing)
             {
