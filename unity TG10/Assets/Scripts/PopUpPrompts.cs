@@ -5,7 +5,7 @@ using UnityEngine;
 public class PopUpPrompts : MonoBehaviour
 {
     public GameObject prompts;
-    private bool _isplayer = false;
+    public static bool _isplayer = false;
     // Start is called before the first frame update
     
 
