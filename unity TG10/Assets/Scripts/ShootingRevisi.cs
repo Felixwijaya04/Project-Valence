@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootingNigger : MonoBehaviour
 {
@@ -23,11 +24,13 @@ public class ShootingNigger : MonoBehaviour
     bool isflashing = false;
     AudioSource suara; 
 
+    public AmmoManager ammoManager;
     private void Start()
     {
         currentammo = ammo;
         suara = GetComponent<AudioSource>();
         Flash.SetActive(false);
+        ammoManager.setAmmo(currentammo);
     }
 
     /*private void Update()
@@ -56,6 +59,7 @@ public class ShootingNigger : MonoBehaviour
             isFire = false;
             Invoke("reload", 2f);
         }
+        ammoManager.updateAmmo(currentammo);
     }
     
     private void Shooting()
