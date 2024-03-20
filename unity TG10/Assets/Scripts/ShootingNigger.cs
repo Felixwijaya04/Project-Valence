@@ -52,7 +52,7 @@ public class ShootingNigger : MonoBehaviour
     private void FixedUpdate()
     {
         Shooting();
-        if (Input.GetKeyDown(KeyCode.R) && currentammo != ammo)
+        if (Input.GetKeyDown(KeyCode.R) && currentammo < ammo)
         {
 
             reloading = true;

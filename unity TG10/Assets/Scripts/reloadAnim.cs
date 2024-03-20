@@ -10,9 +10,10 @@ public class reloadAnim : MonoBehaviour
     [SerializeField] Image circularUI;
     [SerializeField] bool reloading;
 
+    public ShootingNigger nigger;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && nigger.currentammo < nigger.ammo)
         {
             reloading = true;
             circularUI.enabled = true;
