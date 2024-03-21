@@ -31,6 +31,7 @@ public class ShootingNigger : MonoBehaviour
         suara = GetComponent<AudioSource>();
         Flash.SetActive(false);
         ammoManager.setAmmo(currentammo);
+        ammoManager.setMaxAmmo(ammo);
     }
 
     /*private void Update()
@@ -44,7 +45,6 @@ public class ShootingNigger : MonoBehaviour
             }
             reloading = true;
             isFire = false;
-            reload();
         }
     }*/
 
@@ -57,7 +57,7 @@ public class ShootingNigger : MonoBehaviour
 
             reloading = true;
             isFire = false;
-            Invoke("reload", 2f);
+            Invoke("reload", 1.5f);
         }
         ammoManager.updateAmmo(currentammo);
     }
