@@ -18,6 +18,8 @@ public class ShootingNigger : MonoBehaviour
     /*private float timetoreload;*/
     public int currentammo;
     public float timeToReload;
+    public AudioClip deagle, rifle;
+    public ChangeWeapon change;
     /*private float timere;*/
 
     bool reloading = false;
@@ -34,19 +36,19 @@ public class ShootingNigger : MonoBehaviour
         ammoManager.setMaxAmmo(ammo);
     }
 
-    /*private void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && currentammo != ammo)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && change.isRifle == true)
         {
-            timere -= Time.deltaTime;
-            if(timere <= 0)
-            {
-                reload();
-            }
-            reloading = true;
-            isFire = false;
+            suara.clip = rifle;
         }
-    }*/
+        if (Input.GetKeyDown(KeyCode.Alpha2) && change.isRifle != true)
+        {
+            suara.clip = deagle;
+        }
+        ammoManager.setMaxAmmo(ammo);
+        
+    }
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -61,6 +63,7 @@ public class ShootingNigger : MonoBehaviour
         }
         ammoManager.updateAmmo(currentammo);
     }
+
     
     private void Shooting()
     {

@@ -6,24 +6,28 @@ using UnityEngine;
 public class FollowEnemy : MonoBehaviour
 {
     public GameObject enemy;
+    [SerializeField] float agroRange;
+    [SerializeField] Transform player;
+    public GameObject bar;
     private void Awake()
     {
-        /*gameObject.SetActive(false);*/
+        bar.SetActive(false);
     }
     void Update()
     {
         transform.position = enemy.transform.position;
         transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+        float distance = Vector2.Distance(transform.position, player.position);
+        if (distance <= agroRange)
+        {
+            bar.SetActive(true);
+        } else
+        {
+            bar.SetActive(false);
+        }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        BulletDamage bullet = collision.gameObject.GetComponent<BulletDamage>();
-        if (bullet != null)
-        {
-            gameObject.SetActive(true);
-        }
-    }*/
+    
 
 
 }

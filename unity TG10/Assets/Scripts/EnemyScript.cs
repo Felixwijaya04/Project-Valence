@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float damage;
     [SerializeField] int health;
 
+    public bool akukena = false;
     public int currentHealth;
     public Animator animator;
     public PlayerMovement PM;
@@ -35,14 +36,14 @@ public class EnemyScript : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         float patrol = Vector2.Distance(transform.position, PatrolPoint.position);
 
-        print("dist: " + distance);
+        /*print("dist: " + distance);*/
         if(distance < agroRange)
         {
             //chase
             Chase();
             
         }
-        else
+        else if(distance > agroRange && akukena == false)
         {
             //stop
             StopChasing();
@@ -59,7 +60,10 @@ public class EnemyScript : MonoBehaviour
             GetComponent<EnemyPatrol>().enabled = true;
             GetComponent<EnemyScript>().enabled = false;
         }
-
+        if (akukena)
+        {
+            Chase();
+        }
     }
 
     void StopChasing()
@@ -91,6 +95,7 @@ public class EnemyScript : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        akukena = true;
         if (currentHealth <= 0)
         {
             Destroy(canvas);

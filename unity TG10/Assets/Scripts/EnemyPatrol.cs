@@ -32,6 +32,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             Stop();
             GetComponent<EnemyScript>().enabled = true;
+            GetComponent<EnemyScript>().akukena = false;
             GetComponent<EnemyPatrol>().enabled = false;
         }
         
