@@ -15,8 +15,7 @@ public class itemBuy : MonoBehaviour
         if(CoinsManager.totalCoins >= price)
         {
             CoinsManager.addCoins(-price);
-            pm.maxHealth += hpAdd;
-            pm.currentHealth = pm.maxHealth;
+            pm.currentHealth += hpAdd;
         }
     }
 
