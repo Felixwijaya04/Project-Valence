@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     public static bool isMoving = false;
+    public int armor;
+    public int currentarmor;
     /*private int FacingSign = 0;*/
 
 
@@ -90,8 +92,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.setHealth(currentHealth);
+        if (currentarmor !> 0)
+        {
+            currentHealth -= damage;
+            healthBar.setHealth(currentHealth);
+        }
+        currentarmor -= damage;
+        
     }
 
     private void FixedUpdate()

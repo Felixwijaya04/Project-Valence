@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -13,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float patrolRange;
     [SerializeField] float damage;
     [SerializeField] int health;
+    [SerializeField] GameObject deadeffect;
 
     public bool akukena = false;
     public int currentHealth;
@@ -20,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     public PlayerMovement PM;
     public EnemyBarValue healthBar;
     public Canvas canvas;
+
 
     Rigidbody2D rb2d;
     void Start()
@@ -99,6 +102,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(canvas);
+            Instantiate(deadeffect, );
             Die();
         }
     }

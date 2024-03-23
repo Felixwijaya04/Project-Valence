@@ -9,6 +9,7 @@ public class FollowEnemy : MonoBehaviour
     [SerializeField] float agroRange;
     [SerializeField] Transform player;
     public GameObject bar;
+    public int distances;
     private void Awake()
     {
         bar.SetActive(false);
@@ -16,7 +17,7 @@ public class FollowEnemy : MonoBehaviour
     void Update()
     {
         transform.position = enemy.transform.position;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + distances, transform.position.z);
         float distance = Vector2.Distance(transform.position, player.position);
         if (distance <= agroRange)
         {
