@@ -12,12 +12,13 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private GameObject currentTeleporter;
     private bool isGrounded;
-    public int maxHealth = 20;
+    public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
     public static bool isMoving = false;
-    public int armor;
-    public int currentarmor;
+    public int maxarmor = 100;
+    public int currentarmor = 0;
+    public BarArmor barArmor;
     /*private int FacingSign = 0;*/
 
 
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.setMaxhealth(maxHealth);
         audioSource = GetComponent<AudioSource>();
+        barArmor.setArmor(maxarmor);
+        barArmor.setCurrentarmor(currentarmor);
     }
 
     void Update()
@@ -45,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal == 0)
         {
-            Debug.Log(horizontal);
+            /*Debug.Log(horizontal);*/
             isMoving = false;
             audioSource.Stop();
         } else if(horizontal !=0)
@@ -87,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        
     }
 
     public void TakeDamage(int damage)
@@ -108,17 +110,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = runningSpeed;
-            Debug.Log("running");
+            /*Debug.Log("running");*/
         } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded)
         {
             currentSpeed = silentWalkSpeed;
-            Debug.Log("silent");
+            /*Debug.Log("silent");*/
         }
         // memanggil return value dari script shooting
         if (Shooting.Pressing() == true)
         {
             currentSpeed = Walkspeed;
-            Debug.Log("stop moving");
+            /*Debug.Log("stop moving");*/
         }
         Walk(currentSpeed);
 
@@ -147,30 +149,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // private void FixedUpdate()
-    // {
-    //     currentSpeed = Walkspeed;
-    //     if (Input.GetKey(KeyCode.LeftShift))
-    //     {
-    //         currentSpeed = runningSpeed;
-    //         Debug.Log("running");
-    //     } else if (Input.GetKey(KeyCode.LeftControl) && isGrounded())
-    //     {
-    //         currentSpeed = silentWalkSpeed;
-    //         Debug.Log("silent");
-    //     }
-    //     // memanggil return value dari script shooting
-    //     if (Shooting.Pressing() == true)
-    //     {
-    //         currentSpeed = Walkspeed;
-    //         Debug.Log("stop moving");
-    //     }
-    //     Walk(currentSpeed);
-
-    //     //isGrounded
-    //     isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    //     animator.SetBool("isGround", isGrounded);
-    // }
+    
     void Walk(float currentspeed)
     {
         rb.velocity = new Vector2(horizontal * currentSpeed, rb.velocity.y);

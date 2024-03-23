@@ -44,6 +44,7 @@ public class EnemyScript : MonoBehaviour
         {
             //chase
             Chase();
+            Debug.Log("kejar");
             
         }
         else if(distance > agroRange && akukena == false)
@@ -80,14 +81,12 @@ public class EnemyScript : MonoBehaviour
         {
             //move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
-            /*transform.Rotate(0f, 180f, 0f);*/
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if(transform.position.x > player.position.x) 
         {
             //move left
             rb2d.velocity = new Vector2 (-moveSpeed, 0);
-            /*transform.Rotate(0f, -180f, 0f);*/
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         
@@ -102,7 +101,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(canvas);
-            Instantiate(deadeffect);
+            Instantiate(deadeffect, transform.position, Quaternion.identity);
             Die();
         }
     }

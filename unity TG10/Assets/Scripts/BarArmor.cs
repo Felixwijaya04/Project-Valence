@@ -10,7 +10,6 @@ public class BarArmor : MonoBehaviour
     public void setArmor(int armor)
     {
         slider.maxValue = armor;
-        slider.value = armor;
     }
 
     public void setCurrentarmor(int currentarmor)
