@@ -102,7 +102,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(canvas);
-            Instantiate(deadeffect, );
+            Instantiate(deadeffect);
             Die();
         }
     }

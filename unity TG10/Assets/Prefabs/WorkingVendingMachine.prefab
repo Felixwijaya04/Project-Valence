@@ -94,7 +94,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7367261547326833990, guid: be3de1e8115a6eb498ead3bdc68461b5, type: 3}
       propertyPath: m_Name
-      value: vending machine Variant
+      value: WorkingVendingMachine
       objectReference: {fileID: 0}
     - target: {fileID: 8593509194321414332, guid: be3de1e8115a6eb498ead3bdc68461b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,6 +229,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VendingUI: {fileID: 0}
+  playerscript: {fileID: 0}
+  RotateP: {fileID: 0}
+  TargetShoot: {fileID: 0}
+  Camera: {fileID: 0}
+  zoomingin: 20
+  zoomingout: 30.28
+  velocity: 0
 --- !u!4 &8080316517378247769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8593509194321414332, guid: be3de1e8115a6eb498ead3bdc68461b5, type: 3}
