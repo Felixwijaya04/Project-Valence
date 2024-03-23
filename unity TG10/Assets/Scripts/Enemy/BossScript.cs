@@ -24,7 +24,7 @@ public class BossScript : MonoBehaviour
     void Start()
     {
         currentHealth = health;
-        healthBar.SetMaxHealth(health);
+        /*healthBar.SetMaxHealth(health);*/
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -46,12 +46,13 @@ public class BossScript : MonoBehaviour
             //stop
             StopChasing();
         }
-        if (distance < attackDist)
+        if (distance <= attackDist)
         {
             animator.SetTrigger("Attack");
 
         }
-        /*animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));*/
+
+        animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 
     }
 
