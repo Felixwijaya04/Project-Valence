@@ -28,9 +28,14 @@ public class BulletDamage : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+        EnemyScriptbat bat = collision.gameObject.GetComponent<EnemyScriptbat>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+        }
+        if(bat != null)
+        {
+            bat.TakeDamage(damage);
         }
 
         Instantiate(HitImpact,transform.position, Quaternion.identity);

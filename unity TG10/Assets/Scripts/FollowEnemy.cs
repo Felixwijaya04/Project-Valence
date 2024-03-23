@@ -16,16 +16,20 @@ public class FollowEnemy : MonoBehaviour
     }
     void Update()
     {
-        transform.position = enemy.transform.position;
-        transform.position = new Vector3(transform.position.x, transform.position.y + distances, transform.position.z);
-        float distance = Vector2.Distance(transform.position, player.position);
-        if (distance <= agroRange)
+        if (enemy != null)
         {
-            bar.SetActive(true);
-        } else
-        {
-            bar.SetActive(false);
+            transform.position = enemy.transform.position;
+            transform.position = new Vector3(transform.position.x, transform.position.y + distances, transform.position.z);
+            float distance = Vector2.Distance(transform.position, player.position);
+            if (distance <= agroRange)
+            {
+                bar.SetActive(true);
+            }   else
+            {
+                bar.SetActive(false);
+            }
         }
+        
     }
 
     
