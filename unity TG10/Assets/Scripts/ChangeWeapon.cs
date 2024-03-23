@@ -10,6 +10,7 @@ public class ChangeWeapon : MonoBehaviour
     public BulletDamage bullet;
     public int tempdeagle = 7;
     public int temprifle = 20;
+    public bool changing = false;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,7 @@ public class ChangeWeapon : MonoBehaviour
             weapon.currentammo = temprifle;
             weapon.intervalFiring = 0.15f;
             bullet.damage = 10;
+            weapon.changesound(changing==true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && isRifle == true)
         {
@@ -35,6 +37,7 @@ public class ChangeWeapon : MonoBehaviour
             weapon.currentammo = tempdeagle;
             weapon.intervalFiring = 0.8f;
             bullet.damage = 20;
+            weapon.changesound(changing==false);
         }
     }
 }

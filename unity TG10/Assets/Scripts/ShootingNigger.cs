@@ -38,14 +38,14 @@ public class ShootingNigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && change.isRifle == true)
+        /*if (Input.GetKeyDown(KeyCode.Alpha1) && change.isRifle == true)
         {
             suara.clip = rifle;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && change.isRifle != true)
         {
             suara.clip = deagle;
-        }
+        }*/
         ammoManager.setMaxAmmo(ammo);
         
     }
@@ -128,6 +128,15 @@ public class ShootingNigger : MonoBehaviour
         /*timere = timeToReload;*/
         /*yield return new WaitForSeconds(timeToReload);*/
     }
-
+    public void changesound(bool change)
+    {
+        if (!change)
+        {
+            suara.clip = rifle;
+        } else
+        {
+            suara.clip = deagle;
+        }
+    }
 
 }
