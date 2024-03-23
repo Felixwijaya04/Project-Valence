@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HILANGKAN : MonoBehaviour
 {
+    public float durasi;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, durasi);
     }
 
 }

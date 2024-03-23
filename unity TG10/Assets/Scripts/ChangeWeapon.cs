@@ -11,11 +11,12 @@ public class ChangeWeapon : MonoBehaviour
     public int tempdeagle = 7;
     public int temprifle = 20;
     public bool changing = false;
+    public itemBuy validates;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && isRifle == false)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && isRifle == false && validates.GetWeapon == true)
         {
             isRifle = true;
             Debug.Log("Changing");

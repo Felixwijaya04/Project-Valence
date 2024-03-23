@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -13,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float patrolRange;
     [SerializeField] float damage;
     [SerializeField] int health;
+    [SerializeField] GameObject deadeffect;
 
     public bool akukena = false;
     public int currentHealth;
@@ -20,6 +22,7 @@ public class EnemyScript : MonoBehaviour
     public PlayerMovement PM;
     public EnemyBarValue healthBar;
     public Canvas canvas;
+
 
     Rigidbody2D rb2d;
     void Start()
@@ -41,6 +44,7 @@ public class EnemyScript : MonoBehaviour
         {
             //chase
             Chase();
+            Debug.Log("kejar");
             
         }
         else if(distance > agroRange && akukena == false)
@@ -77,14 +81,12 @@ public class EnemyScript : MonoBehaviour
         {
             //move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
-            /*transform.Rotate(0f, 180f, 0f);*/
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if(transform.position.x > player.position.x) 
         {
             //move left
             rb2d.velocity = new Vector2 (-moveSpeed, 0);
-            /*transform.Rotate(0f, -180f, 0f);*/
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         
@@ -99,6 +101,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(canvas);
+            Instantiate(deadeffect, transform.position, Quaternion.identity);
             Die();
         }
     }
