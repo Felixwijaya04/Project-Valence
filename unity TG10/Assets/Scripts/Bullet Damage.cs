@@ -29,6 +29,7 @@ public class BulletDamage : MonoBehaviour
     {
         EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
         EnemyScriptbat bat = collision.gameObject.GetComponent<EnemyScriptbat>();
+        BossHealth boss = collision.gameObject.GetComponent<BossHealth>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
@@ -36,6 +37,10 @@ public class BulletDamage : MonoBehaviour
         if(bat != null)
         {
             bat.TakeDamage(damage);
+        }
+        if(boss != null)
+        {
+            boss.TakeDamage(damage);
         }
 
         Instantiate(HitImpact,transform.position, Quaternion.identity);

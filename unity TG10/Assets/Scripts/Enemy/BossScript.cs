@@ -9,11 +9,9 @@ public class BossScript : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float attackDist;
     [SerializeField] float damage;
-    [SerializeField] int health;
-    [SerializeField] GameObject deadeffect;
+
 
     public bool akukena = false;
-    public int currentHealth;
     public Animator animator;
     public PlayerMovement PM;
     public EnemyBarValue healthBar;
@@ -24,7 +22,6 @@ public class BossScript : MonoBehaviour
     Rigidbody2D rb2d;
     void Start()
     {
-        currentHealth = health;
         /*healthBar.SetMaxHealth(health);*/
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -80,24 +77,6 @@ public class BossScript : MonoBehaviour
 
     }
 
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-        akukena = true;
-        if (currentHealth <= 0)
-        {
-            Destroy(canvas);
-            Instantiate(deadeffect, transform.position, Quaternion.identity);
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
