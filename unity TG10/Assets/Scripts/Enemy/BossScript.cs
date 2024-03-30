@@ -18,6 +18,7 @@ public class BossScript : MonoBehaviour
     public PlayerMovement PM;
     public EnemyBarValue healthBar;
     public Canvas canvas;
+    public bool attack = false;
 
 
     Rigidbody2D rb2d;
@@ -48,7 +49,8 @@ public class BossScript : MonoBehaviour
         }
         if (distance <= attackDist)
         {
-            animator.SetTrigger("Attack");
+            attack = true;
+            GetComponent<BossAttack>().enabled = true;
 
         }
 
