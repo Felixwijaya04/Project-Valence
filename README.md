@@ -21,7 +21,7 @@ I must correct this. No one else have been successful in getting anywhere near t
 <br>
 
 ## 🕹️Download Game
-The game was built as an **.exe** file of <2GB. Download the game from [Download Here!](https://bgdc.itch.io/project-valence/download/eyJpZCI6MjYwMTgwMSwiZXhwaXJlcyI6MTcyMDQzMDcwM30%3d.JFyDJScrxCXXFYFRYUwJ3WnXekc%3d) (if the download link expires, please contact me). 
+The game was built as an **.exe** file of <500MB. Download the game from [Download Here!](https://bgdc.itch.io/project-valence/download/eyJpZCI6MjYwMTgwMSwiZXhwaXJlcyI6MTcyMDQzMDcwM30%3d.JFyDJScrxCXXFYFRYUwJ3WnXekc%3d) (if the download link expires, please contact me). 
 
 <br>
 
@@ -50,20 +50,4 @@ The game was built as an **.exe** file of <2GB. Download the game from [Download
      ├── ...
       
 ```
-<br>
-
-## 🔥How to open up the project on Unity Editor
-This game was developed using **Unity Editor 2021.3.11f1**, and we recommend that you download this specific version because using different ones, especially older versions, might result in problems
-
-![image](https://github.com/fajarnadril/Project-Stir/assets/36891062/1d44502b-1dfb-424c-97d1-6b1a93616ffc)
-
-
-You are **required to download several assets from the Unity Asset Store** to properly operate this game. All assets should be placed in the **3rdParty** folder. The assets that need to be downloaded are as follows:
-
-**Download Here:**
-- Japanese City Megapack (URP 2020) : https://assetstore.unity.com/packages/3d/environments/japanese-city-modular-pack-v1-4-239043
-- Logitech SDK : https://assetstore.unity.com/packages/tools/integration/logitech-gaming-sdk-6630
-- RainMaker :  https://assetstore.unity.com/packages/vfx/particles/environment/rain-maker-2d-and-3d-rain-particle-system-for-unity-34938
-- RealisticCarControllerV3 : https://assetstore.unity.com/packages/tools/physics/realistic-car-controller-16296
-
 
