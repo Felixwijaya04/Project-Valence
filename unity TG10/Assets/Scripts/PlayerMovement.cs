@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Player Default Settings")]
     private float horizontal;
     public float jumpingPower = 16f;
     private bool isFacingRight = true;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public BarArmor barArmor;
     /*private int FacingSign = 0;*/
 
-
+    [Header("Player Manual Settings")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float silentWalkSpeed = 10f;
 
     float currentSpeed;
+
+    [Header("Audio Reference")]
     public AudioClip walk, run;
     AudioSource audioSource;
 
