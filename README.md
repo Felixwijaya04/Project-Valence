@@ -4,33 +4,36 @@
 </p>
 
 ## 🔴About
-**ProjectStir [Pre-Alpha]** is a driving simulation application meticulously crafted to assess driving skills performance using a game-centric approach. Within this application, drivers or users are tasked with navigating a cityscape, all the while gathering vital checkpoints. The performance evaluation revolves around quantifying the number of **checkpoints** successfully acquired within specific time constraints. This performance assessment also encompasses a metric denoted as **damage**, which quantifies the extent of vehicular wear and tear sustained throughout the driving experience.
+**Project Valence** is a 2D shooter platformer game where you're infiltrating a mutant animal research lab. Advance further down the laboratory, and neutralize multiple mutants along the way with different weapons you can purchase by defeating mutants. Shoot down the mutant animals and beat the two-level bosses. Along the way, you will explore the lab, gain coins, encounter weapon vending machines, and maintain your health. Steel yourself up, carefully plan, and don't let them win.
 
-The game is set against an urban backdrop in Asia, replete with one-way streets capable of accommodating only one vehicle at any given moment. Enhanced user performance, characterized by a greater accumulation of checkpoints and minimal vehicle damage, leads to superior overall outcomes. Project-Stir can be operated using various input devices, including a keyboard, joystick, or steering wheel controller.
+Vierra, a leader of her biochemistry lab, is developing a serum to improve the lives of disabled animals. Of them all, some she stumbled upon on the streets, in pain, and in need; some were given up, unable to be cared for - so she took them in, with the will to do her best for these animals.
 
-Within this gaming environment, an user data collection process is employed, employing a Leaderboard-based, game-oriented methodology. The feature for gathering performance data is initiated through data submission following a player's successful game completion. The variables collected encompass **Player Nickname**, **Checkpoint**, and **Damage** data. This performance data is seamlessly integrated with Looker Studio, a public-accessible data visualization tool. This data collection methodology is easily accessible for entertainment purposes or, if necessary, for research applications. Access to this data is available via https://lookerstudio.google.com/reporting/b00ab0ae-0caf-4b2b-855f-a3c7b88dc9f7
+One day, a breakthrough.
+<blockquote>It worked... until it didn't.
+I saw them with my own eyes, getting better each day. Shaggy the bear wasn't shaking anymore. Charlie and Delta, their little hindlegs moved. Sammy started flapping her wings. Then one by one, they went livid... Their bodies hardened, limbs contorting to a horrendous state, they-
+
+Now the system has malfunctioned, the whole laboratory is isolated, my name is in wreck, and the animals are in pain and rampaging, I must-
+
+I must correct this. No one else have been successful in getting anywhere near them. I must... for their sake.</blockquote>
 
 
 
 <br>
 
 ## 🕹️Download Game
-The game was built as an **.exe** file of <2GB. Download the game from [Download Here!](https://binusianorg-my.sharepoint.com/personal/muhamad_fajar_binus_ac_id/_layouts/15/guestaccess.aspx?share=EmZlw3ggUalAt92oG2KBYiABXBStEqtOK7-_jkvSRaUwZA&e=HLU1cs) (if the download link expires, please contact me). 
-
-<br>
-
-## ▶️ Video Gameplay
-https://youtu.be/UWn3G_PZ_fA
-
+The game was built as an **.exe** file of <2GB. Download the game from [Download Here!](https://bgdc.itch.io/project-valence/download/eyJpZCI6MjYwMTgwMSwiZXhwaXJlcyI6MTcyMDQzMDcwM30%3d.JFyDJScrxCXXFYFRYUwJ3WnXekc%3d) (if the download link expires, please contact me). 
 
 <br>
 
 ## 👤Developer
-- Kelvin - Unity Programmer Main Mechanic
-- David Ang - Unity Programmer Game Mechanic 
-- Muhamad Fajar - Unity Technical Artist
-- Thomas Galih Satria - Visual Designer
-- Galih Dea - Game Designer
+- Hanni Nur Azqia (Team Manager)
+- Mario Valent (Programmer, Game Designer)
+- Felix Wijaya (Programmer, Game Designer)
+- Noel Christopher Joy (Game Designer)
+- Paul Sowlawn Kuemba (Game Artist)
+- Vincent Tanujaya (Game Artist)
+- Sanly (Sound Designer)
+- Sania Inez Tantama (Supervisor)
 
 <br>
 
