@@ -44,52 +44,53 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
-        horizontal = Input.GetAxisRaw("Horizontal");
-        if (horizontal == 0)
+        if(Time.timeScale != 0f)
         {
-            /*Debug.Log(horizontal);*/
-            isMoving = false;
-            audioSource.Stop();
-        } else if(horizontal !=0)
-        {
-            isMoving = true;
-            if (!audioSource.isPlaying)
+            horizontal = Input.GetAxisRaw("Horizontal");
+            if (horizontal == 0)
             {
-                audioSource.Play();
+                /*Debug.Log(horizontal);*/
+                isMoving = false;
+                audioSource.Stop();
             }
-            
+            else if (horizontal != 0)
+            {
+                isMoving = true;
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+
+            }
+
+            animator.SetFloat("Speed", (isFacingRight ? 1 : -1) * rb.velocity.x);
+
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            if (mousePos.x > transform.position.x && !isFacingRight)
+            {
+                flip();
+            }
+            else if (mousePos.x < transform.position.x && isFacingRight)
+            {
+                flip();
+            }
+
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
+            {
+                TakeDamage(5);
+            }
         }
-
-        animator.SetFloat("Speed", (isFacingRight ? 1 : -1 ) * rb.velocity.x);
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (mousePos.x > transform.position.x && !isFacingRight)
-        {
-            flip();
-        }
-        else if (mousePos.x < transform.position.x && isFacingRight)
-        { 
-            flip();
-        }
-
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            TakeDamage(5);
-        }
-
-
     }
 
     public void TakeDamage(int damage)
