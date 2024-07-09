@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        StartCoroutine(AutoSave(60f));
         if(Time.timeScale != 0f)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -173,5 +174,15 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    IEnumerator AutoSave(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("Saving game...");
+        SavePlayer();
+    }
 }
