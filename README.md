@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" alt="prostir" src="https://github.com/Felixwijaya04/Felixwijaya04/blob/main/images/H8ZkS_.png">
+  <img width="100%"src="https://github.com/Felixwijaya04/Felixwijaya04/blob/main/images/H8ZkS_.png">
   </br>
 </p>
 
